@@ -32,7 +32,7 @@ ge      :   ">="
 le      :   "<="
 name_symbol      :   WORD
     |   WORD u_bar WORD
-    |   WORD SIGNED_NUMBER
+    |   WORD INT
 u_bar   : "_"
 and_     :   "AND"
 or_     :   "OR"
@@ -42,6 +42,7 @@ const_str   :   "'"WORD"'"
     |   "'" WORD u_bar WORD "'"
 number  :   SIGNED_NUMBER
 
+%import common.INT
 %import common.SIGNED_NUMBER
 %import common.WORD   // imports from terminal library
 %import common.WS
