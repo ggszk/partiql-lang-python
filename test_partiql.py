@@ -21,7 +21,7 @@ from partiql_lang import Build_AST
     ),
     (
         "SELECT jenn FROM Person AS jenn WHERE jenn.name = 'Jennifer'",
-        ['select', ['project', ['list', ['id', 'jenn']]], ['from', ['as', 'jenn', ['id', 'Person']]], ['where', ['=', ['path', ['id', 'jenn'], ['id', 'name']], ['lit', "'Jennifer'"]]]]
+        ['select', ['project', ['list', ['id', 'jenn']]], ['from', ['as', 'jenn', ['id', 'Person']]], ['where', ['=', ['path', ['id', 'jenn'], ['id', 'name']], ['lit', 'Jennifer']]]]
     ),
     (
         "SELECT company.name FROM Person AS p, p.WORKS_FOR AS company WHERE p.name = 'Jennifer'",
@@ -33,7 +33,7 @@ from partiql_lang import Build_AST
                     ['as', 'company', ['path', ['id', 'p'], ['id', 'WORKS_FOR']]]
                 ]
             ],
-            ['where', ['=', ['path', ['id', 'p'], ['id', 'name']], ['lit', "'Jennifer'"]]]
+            ['where', ['=', ['path', ['id', 'p'], ['id', 'name']], ['lit', 'Jennifer']]]
         ]
     ),
     (
@@ -46,7 +46,7 @@ from partiql_lang import Build_AST
             ['project', 
                 ['list', 
                     ['path', ['id', 'from_node'], ['id', 'n_id']],
-                    ['call', 'dijkstra', ['list', ['id', 'from_node'], ['id', 'to_node'], ['lit', "'CONNECT_TO'"], ['lit', "'cost'"]]],
+                    ['call', 'dijkstra', ['list', ['id', 'from_node'], ['id', 'to_node'], ['lit', 'CONNECT_TO'], ['lit', 'cost']]],
                     ['path', ['id', 'to_node'], ['id', 'n_id']]
                 ]
             ],
