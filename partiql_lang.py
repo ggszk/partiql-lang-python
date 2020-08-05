@@ -87,9 +87,16 @@ class Build_AST():
         return ret
 
     def source_expr(self, tree) :
-        # no as clause
+        # no as clause: id or path
         if len(tree.children) == 1 :
-            ret = ['as', self.visit(tree.children[0])[1], self.visit(tree.children[0])]
+            # id case
+            if tree.children[0].data == "id" :
+                as_val = self.visit(tree.children[0])[1]
+            # path case
+            elif tree.children[0].data == "path" :
+                # last string of path is set to as variable
+                as_val = self.visit(tree.children[0])[-1][1]
+            ret = ['as', as_val, self.visit(tree.children[0])]
         # with as clause
         else :
             ret =['as', self.visit(tree.children[1]), self.visit(tree.children[0])]
